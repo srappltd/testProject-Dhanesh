@@ -10,7 +10,8 @@ const UserSlice =  createSlice({
             state.users.push(action.payload)
         },
         deleteUser:(state,action)=>{
-            state.users.splice(state.users.indexOf(action.payload),1)
+            // state.users = state.users.splice(state.users.indexOf(action.payload),1)
+            state.users = state.users.filter(item=>item.id != action.payload)
         }
     }
 })

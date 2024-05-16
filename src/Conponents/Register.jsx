@@ -18,6 +18,7 @@ const Register = () => {
         if(name && email && contact){
             dispatch(addUsers({...user,id:nanoid()}))
             console.log(users)
+            setUser({name:'',email:'',contact:''})
         }
     }
     // console.log(users)
@@ -27,15 +28,15 @@ const Register = () => {
       <form onSubmit={userOnSubmitHandler} className='w-[300px] flex flex-col gap-3 mt-4'>
         <div className='flex flex-col'>
             <label htmlFor="">Name</label>
-            <input type="text" onChange={userOnClickHandler}  className='w-full py-2 px-2 border outline-none' name="name" id="" />
+            <input type="text" onChange={userOnClickHandler} value={user.name} className='w-full py-2 px-2 border outline-none' name="name" id="" />
         </div>
         <div className='flex flex-col'>
             <label htmlFor="">Email</label>
-            <input type="text" onChange={userOnClickHandler} className='w-full py-2 px-2 border outline-none' name="email" id="" />
+            <input type="text" onChange={userOnClickHandler} value={user.email} className='w-full py-2 px-2 border outline-none' name="email" id="" />
         </div>
         <div className='flex flex-col'>
             <label htmlFor="">Contact</label>
-            <input type="text" onChange={userOnClickHandler} className='w-full py-2 px-2 border outline-none' name="contact" id="" />
+            <input type="text" onChange={userOnClickHandler} value={user.contact} className='w-full py-2 px-2 border outline-none' name="contact" id="" />
         </div>
         <button className='w-full py-2 bg-zinc-500 text-white font-medium text-sm'>Add User</button>
       </form>
